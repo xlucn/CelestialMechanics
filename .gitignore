@@ -1,9 +1,5 @@
-/*
-!/src/
-!/include/
-!/makefile
-!/lib/
-!/homework/
+bin/
+otherscode/
 .txt
 .png
 
