@@ -7,8 +7,13 @@ LFLAGS=-lm -lNR -L $(NR_LIB_DIR)
 IFLAGS=-I ./include -I $(NR_INC_DIR)
 
 files=$(wildcard ./include/*)
-files1=$(files) ./src/OrbitalEle_CoorVol_Trans.c ./src/OrbitEvaluation.c ./src/transform.c
-files2=$(files) ./src/CircularRTB.c ./src/Sitnikov.c
+files1=$(files) \
+	./src/OrbitalEle_CoorVol_Trans.c \
+	./src/OrbitEvaluation.c \
+	./src/transform.c
+files2=$(files) \
+	./src/CircularRTB.c \
+	./src/Sitnikov.c
 
 all:1 2
 
