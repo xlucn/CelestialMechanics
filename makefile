@@ -9,69 +9,57 @@ IFLAGS=-I ./include -I $(NR_INC_DIR)
 FLAGS=$(CFLAGS) $(LFLAGS) $(IFLAGS)
 # source files
 files=$(wildcard ./include/*) ./src/OrbitalEle_CoorVol_Trans.c
-files1=$(files) \
+files2=$(files) \
 	./src/OrbitEvaluation.c \
 	./src/transform.c
-files2=$(files) \
+files3=$(files) \
 	./src/CircularRTB.c \
 	./src/SitnikovCircular.c \
 	./src/SitnikovEllipse.c
 # executable files
-exe11=./bin/evaluate
-exe12=./bin/transform
-exe21=./bin/circularRTB
-exe22=./bin/SitnikovCircular
-exe23=./bin/SitnikovEllipse
+exe21=./bin/evaluate
+exe22=./bin/transform
+exe31=./bin/circularRTB
+exe32=./bin/SitnikovCircular
+exe33=./bin/SitnikovEllipse
 # text files
-txt11=./homework/chap1/evaluate.txt
-txt12=./homework/chap1/transform.txt
-txt21=./homework/chap2/circularRTB.txt
-txt22=./homework/chap2/SitnikovCircular.txt
-txt23=./homework/chap2/SitnikovEllipse.txt
+txt21=./homework/chap2/evaluate.txt
+txt22=./homework/chap2/transform.txt
+txt31=./homework/chap3/circularRTB.txt
+txt32=./homework/chap3/SitnikovCircular.txt
+txt33=./homework/chap3/SitnikovEllipse.txt
 
 
-.PHONY:all chap1 chap2 run run1 run2 py1 py2
+.PHONY:all chap2 chap3 run run2 run3 py2 py3
 
 # all the executable files, divided into chapters
-all:chap1 chap2
-
-## chapter 1
-chap1:$(exe11) $(exe12)
-
-$(exe11):$(files1)
-	gcc -o $@ ./src/OrbitalEle_CoorVol_Trans.c ./src/OrbitEvaluation.c $(FLAGS)
-$(exe12):$(files1)
-	gcc -o $@ ./src/OrbitalEle_CoorVol_Trans.c ./src/transform.c $(FLAGS)
+all:chap2 chap3
 
 ## chapter 2
-chap2:$(exe21) $(exe22) $(exe23)
+chap2:$(exe21) $(exe22)
 
 $(exe21):$(files2)
+	gcc -o $@ ./src/OrbitalEle_CoorVol_Trans.c ./src/OrbitEvaluation.c $(FLAGS)
+$(exe22):$(files2)
+	gcc -o $@ ./src/OrbitalEle_CoorVol_Trans.c ./src/transform.c $(FLAGS)
+
+## chapter 3
+chap3:$(exe31) $(exe32) $(exe33)
+
+$(exe31):$(files3)
 	gcc -o $@ ./src/CircularRTB.c $(FLAGS)
 
-$(exe22):$(files2)
+$(exe32):$(files3)
 	gcc -o $@ ./src/SitnikovCircular.c $(FLAGS)
 
-$(exe23):$(files2)
+$(exe33):$(files3)
 	gcc -o $@ ./src/OrbitalEle_CoorVol_Trans.c ./src/SitnikovEllipse.c $(FLAGS)
 
 # run all the executable files and write the output into text files
-run:run1 run2
+run:run2 run3
 
 ## chapter 1
-run1:$(txt11) $(txt12) py1
-
-$(txt11):$(exe11)
-	$< > $@
-
-$(txt12):$(exe12)
-	$< > $@
-
-py1:$(txt11) $(txt12)
-
-
-## chapter 2
-run2:$(txt21) $(txt22) $(txt23) py2
+run2:$(txt21) $(txt22) py2
 
 $(txt21):$(exe21)
 	$< > $@
@@ -79,11 +67,23 @@ $(txt21):$(exe21)
 $(txt22):$(exe22)
 	$< > $@
 
-$(txt23):$(exe23)
+py2:$(txt21) $(txt22)
+
+
+## chapter 2
+run3:$(txt31) $(txt32) $(txt33) py3
+
+$(txt31):$(exe31)
 	$< > $@
 
-py2:$(txt21) $(txt22) $(txt23)
-	cd homework/chap2/;python orbitplot.py;python phasegraph.py;python plotcontour.py
+$(txt32):$(exe32)
+	$< > $@
+
+$(txt33):$(exe33)
+	$< > $@
+
+py3:$(txt31) $(txt32) $(txt33)
+	cd homework/chap3/;python orbitplot.py;python phasegraph.py;python plotcontour.py
 
 test:
 	echo $(files)
