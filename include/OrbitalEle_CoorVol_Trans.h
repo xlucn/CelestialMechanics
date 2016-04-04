@@ -5,22 +5,22 @@
 
 // define the orbital elements
 typedef struct OrbitalElements{
-	double a;
-	double e;
-	double i;
-	double Omega;
-	double omega;
-	double M;
+    double a;       // semimajor axis
+    double e;       // eccentricity
+    double i;       // inclination
+    double Omega;   // longitude of the accending node
+    double omega;   // argument of periapsis
+    double M;       // mean anomaly
 } OrbElem;
 
 // define the coordinate and volocity in Cartesian coordinate system
 typedef struct CoordinateVolocity{
-	double x;
-	double y;
-	double z;
-	double vx;
-	double vy;
-	double vz;
+    double x;
+    double y;
+    double z;
+    double vx;
+    double vy;
+    double vz;
 } CoorVol;
 
 // Assume we know the mu of the object in both cases, you have to set the

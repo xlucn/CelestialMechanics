@@ -38,7 +38,6 @@ OrbElem CoorVol2OrbElem(CoorVol coor)
 	double sinE = (x * vx + y * vy + z * vz) / (a * a * n * e);
 	double E = atan2(sinE, cosE); // eccentric anomaly
 	double M = E - e * sin(E); // mean anomaly
-	double M0;
 	double i = acos(Hz / h); // inclination
 	double Omega = atan2(Hx, -Hy); // longitude of the accending node (2.122)
 	double Pz = cos(E) * z / r - sin(E) * vz / n / a;

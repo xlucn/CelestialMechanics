@@ -51,6 +51,7 @@ int main()
     double *Time = NULL;
     double **res = NULL;
 
+	// some constants used below can be found in "Constants.h"
     mu = G * (MSun + MEarth);
     OrbElem orb1 = orbEarth;
     CoorVol coor = OrbElem2CoorVol(orb1);
@@ -62,9 +63,8 @@ int main()
     for(int i = 0; i < steps; i++)
     {
         printf("%.0f ", Time[i]);
-        double r = sqrt(res[i][0] * res[i][0] + res[i][1] * res[i][1] + res[i][2] * res[i][2]);
-        printf("%f %f %f %f %f %f %f\n",
-         	r, res[i][0], res[i][0], res[i][0], res[i][3], res[i][4], res[i][5]);
+        printf("%f %f %f %f %f %f\n",
+            res[i][0], res[i][1], res[i][2], res[i][3], res[i][4], res[i][5]);
     }
     free(Time);
     free(res);
