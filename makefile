@@ -83,7 +83,7 @@ $(txt33):$(exe33)
 	$< > $@
 
 py3:$(txt31) $(txt32) $(txt33)
-	cd homework/chap3/;python orbitplot.py;python phasegraph.py;python plotcontour.py
+	cd homework/chap3/;python orbitplot.py;python phasediagram.py;python plotcontour.py
 
 test:
 	echo $(files)

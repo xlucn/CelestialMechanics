@@ -15,7 +15,7 @@ double SolveKepler(double M, double e)
 	return E;
 }
 
-// transform from coordinates and volocity to orbital elements
+// transform from coordinates and velocity to orbital elements
 OrbElem CoorVol2OrbElem(CoorVol coor)
 {
 	double x = coor.x;

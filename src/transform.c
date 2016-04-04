@@ -1,4 +1,4 @@
-// Program to transform a set of orbital elements to coordinates and volocity
+// Program to transform a set of orbital elements to coordinates and velocity
 // in Cartesian coordinate system and vice versa.
 #include <stdio.h>
 #include "OrbitalEle_CoorVol_Trans.h"

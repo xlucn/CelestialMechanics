@@ -13,8 +13,8 @@ typedef struct OrbitalElements{
     double M;       // mean anomaly
 } OrbElem;
 
-// define the coordinate and volocity in Cartesian coordinate system
-typedef struct CoordinateVolocity{
+// define the coordinate and velocity in Cartesian coordinate system
+typedef struct CoordinateVelocity{
     double x;
     double y;
     double z;
@@ -30,7 +30,7 @@ double mu;
 // Newton method to solve the Kepler equation
 double SolveKepler(double M, double e);
 
-// transform from coordinates and volocity to orbital elements
+// transform from coordinates and velocity to orbital elements
 OrbElem CoorVol2OrbElem(CoorVol coor);
 CoorVol OrbElem2CoorVol(OrbElem orb);
 
