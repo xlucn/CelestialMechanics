@@ -1,5 +1,8 @@
 #! /usr/bin/python
 # -*- encoding=utf-8 -*-
+'''
+Plot the orbit of circular restricted three-body problem
+'''
 import numpy as np
 import matplotlib.pyplot as plt
 

@@ -1,6 +1,8 @@
 #!/usr/bin/python
 # -*- encoding=utf-8 -*-
-
+'''
+Plot the phase diagram of Sitnikov problems in circular and ellipse orbits
+'''
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -23,7 +25,7 @@ for orbit in [0, 1]:
             plt.plot(z[lo:hi], vz[lo:hi],label='$C_J=%f$' % data[-1][lo])
         else:
             plt.plot(z[lo:hi], vz[lo:hi])
-    plt.title('phase graph of Sitkinov problem')
+    plt.title('phase diagram of Sitkinov problem')
     plt.xlabel('$z$',size=17)
     plt.ylabel('$dz/dt$',size=17)
     if orbit == 0:
