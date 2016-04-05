@@ -59,7 +59,7 @@ int main()
     double init[6] = {coor.x, coor.y, coor.z, coor.vx, coor.vy, coor.vz};
     double (*f[6])(double, double*) = {dx, dy, dz, dvx, dvy, dvz};
     int steps = SODERKF(&Time, &res, f, init, lo, hi, nfun, step, TOL, hmax, hmin, 13);
-    printf("%d\n", steps);
+
     for(int i = 0; i < steps; i++)
     {
         printf("%.0f ", Time[i]);

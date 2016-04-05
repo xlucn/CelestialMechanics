@@ -9,8 +9,8 @@ import matplotlib.pyplot as plt
 file = 'circularRTB.txt'
 data = [[float(i) for i in l.split()] for l in open(file).readlines()]
 data = np.array(data).T
-x,y=data[1],data[2]
-
+t, x, y=data[0], data[1], data[2]
+orbits = int(t[-1]/np.pi/2+0.1)
 
 steps = np.arange(len(x))
 Cj = data[7]
@@ -23,10 +23,14 @@ plt.savefig('cj.png')
 
 
 fig = plt.figure()
-plt.title('orbit during 20 periods')
+plt.title('orbit during %d periods' % orbits)
 plt.xlabel('$x$')
 plt.ylabel('$y$')
-plt.text(x.max()*0.75+x.min()*0.25,y.max()*0.75+y.min()*0.25,'$\mu=0.01$\n$C_J=%.4f$' % Cj[0],size=20)
+textx = x.max()*0.75+x.min()*0.25
+texty = y.max()*0.6+y.min()*0.4
+texts = '$\mu=0.001$\n$C_J=%.6f$\n$x_0=%.4f$\n$y_0=%.4f$\n$v_{x0}=%.4f$\n$v_{y0}=%.4f$' \
+    % (Cj[0], x[0], y[0], data[4][0], data[5][0])
+plt.text(textx,texty,texts,size=16)
 plt.plot(x,y)
 plt.savefig('orbit.png')
 

@@ -97,14 +97,14 @@ int main()
 {
 
 	double a = 0;
-	double b = 2 * pi;
+	double b = 20 * pi;
 	double h0 = pi / 100;
 	double hmax = pi / 10;
 	double hmin = pi / 1000;
-	double TOL = 1e-3;
+	double TOL = 1e-7;
 
 	mu = 0.5;
-    e = 0.2;
+    e = 0.02;
     double (*f[])(double, double*) = {dx, dy, dz, dvx, dvy, dvz};
 
     double *t;

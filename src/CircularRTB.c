@@ -59,16 +59,17 @@ double dvz(double t, double *y)
 
 int main()
 {
+	mu = 0.001;
 
 	double a = 0;
-	double b = 40 * pi;
+	double b = 20 * pi;
 	double h0 = pi / 100;
 	double hmax = pi / 10;
-	double hmin = pi / 1000;
-	double TOL = 1e-3;
+	double hmin = pi / 1000000;
+	double TOL = 1e-12;
 	// 模拟线性稳定的L4/L5点附近的情况
-	mu = 0.01;
-	double y0[] = {0.5, sqrt(3)/2, 0, 0, 0, 0};
+	double y0[] = {0.499+0.06, sqrt(3)/2, 0, -0.3, -0.3, 0};
+
 	double (*f[])(double, double*) = {dx, dy, dz, dvx, dvy, dvz};
 
 	double *t;

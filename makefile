@@ -68,7 +68,7 @@ $(txt22):$(exe22)
 	$< > $@
 
 py2:$(txt21) $(txt22)
-
+	cd homework/chap2/;python plotorbit.py
 
 ## chapter 2
 run3:$(txt31) $(txt32) $(txt33) py3
