@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-#include "NumericalRecipes.h"
+#include "NR.h"
 #include "OrbitalEle_CoorVol_Trans.h"
 #include "Constants.h"
 
@@ -97,14 +97,14 @@ int main()
 {
 
 	double a = 0;
-	double b = 20 * pi;
-	double h0 = pi / 100;
+	double b = 23 * pi;
+	double h0 = pi / 10;
 	double hmax = pi / 10;
-	double hmin = pi / 1000;
-	double TOL = 1e-7;
+	double hmin = pi / 100;
+	double TOL = 1e1;
 
 	mu = 0.5;
-    e = 0.02;
+    e = 0.3;
     double (*f[])(double, double*) = {dx, dy, dz, dvx, dvy, dvz};
 
     double *t;

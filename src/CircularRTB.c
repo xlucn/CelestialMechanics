@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-#include "NumericalRecipes.h"
+#include "NR.h"
 #include "Constants.h"
 
 double mu;
@@ -62,13 +62,13 @@ int main()
 	mu = 0.001;
 
 	double a = 0;
-	double b = 20 * pi;
+	double b = 60 * pi;
 	double h0 = pi / 100;
 	double hmax = pi / 10;
 	double hmin = pi / 1000000;
 	double TOL = 1e-12;
 	// 模拟线性稳定的L4/L5点附近的情况
-	double y0[] = {0.499+0.06, sqrt(3)/2, 0, -0.3, -0.3, 0};
+	double y0[] = {0.470, sqrt(3)/2, 0, 0, 0, 0};
 
 	double (*f[])(double, double*) = {dx, dy, dz, dvx, dvy, dvz};
 
@@ -84,6 +84,16 @@ int main()
 		printf("%f %f %f %f %f %f %.10f\n",
 			y[i][0], y[i][1], y[i][2], y[i][3], y[i][4], y[i][5], Cj);
 	}
+
+	FILE *para;
+	// currently this will work when rum make run command in the project root path
+	para = fopen("homework/chap3/circularRTBpara.txt", "w");
+	fprintf(para, "a %f\n", a);
+	fprintf(para, "b %f\n", b);
+	fprintf(para, "TOL %f\n", TOL);
+	fprintf(para, "mu %f\n", mu);
+	fclose(para);
+
 	free(t);
 	free(y);
 

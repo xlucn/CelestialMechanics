@@ -28,6 +28,7 @@ for orbit in [0, 1]:
     plt.title('phase diagram of Sitkinov problem')
     plt.xlabel('$z$',size=17)
     plt.ylabel('$dz/dt$',size=17)
+    plt.xlim(-5,5)
     if orbit == 0:
         plt.legend()
     plt.savefig(datafile[orbit][:-3]+'png')

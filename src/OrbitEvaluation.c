@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-#include "NumericalRecipes.h"
+#include "NR.h"
 #include "OrbitalEle_CoorVol_Trans.h"
 #include "Constants.h"
 

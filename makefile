@@ -1,12 +1,15 @@
 # directories
+## the directory of "MyRecipes" project
 NR_DIR=../MyRecipes
+## the directory of include file NR.h
 NR_INC_DIR=$(NR_DIR)/include
+## the directory of library file lNR.a
 NR_LIB_DIR=$(NR_DIR)/lib
 # flags
 CFLAGS=-Wall -g -std=c11
-LFLAGS=-lm -lNR -L $(NR_LIB_DIR)
+LFLAGS=-lNR -L $(NR_LIB_DIR) -lm 
 IFLAGS=-I ./include -I $(NR_INC_DIR)
-FLAGS=$(CFLAGS) $(LFLAGS) $(IFLAGS)
+FLAGS=$(CFLAGS) $(IFLAGS) $(LFLAGS)
 # source files
 files=$(wildcard ./include/*) ./src/OrbitalEle_CoorVol_Trans.c
 files2=$(files) \
@@ -58,8 +61,8 @@ $(exe33):$(files3)
 # run all the executable files and write the output into text files
 run:run2 run3
 
-## chapter 1
-run2:$(txt21) $(txt22) py2
+## chapter 2
+run2:$(txt21) $(txt22)
 
 $(txt21):$(exe21)
 	$< > $@
@@ -70,8 +73,8 @@ $(txt22):$(exe22)
 py2:$(txt21) $(txt22)
 	cd homework/chap2/;python plotorbit.py
 
-## chapter 2
-run3:$(txt31) $(txt32) $(txt33) py3
+## chapter 3
+run3:$(txt31) $(txt32) $(txt33)
 
 $(txt31):$(exe31)
 	$< > $@

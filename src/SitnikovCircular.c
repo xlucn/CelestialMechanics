@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-#include "NumericalRecipes.h"
+#include "NR.h"
 #include "Constants.h"
 
 double mu;
@@ -75,9 +75,9 @@ int main()
     double Cj;
 
     int index = 0;
-    for(double z0 = 0.5; z0 < 4; z0 += 0.5)
+    for(double z0 = -3; z0 < 3; z0 += 0.5)
     {
-        double y0[] = {0, 0, z0, 0, 0, 0};
+        double y0[] = {0, 0, 1, 0, 0, z0};
         int steps = SODERKF(&t, &y, f, y0, a, b, 6, h0, TOL, hmax, hmin, 13);
 
         for(int i = 0; i < steps; i++)
