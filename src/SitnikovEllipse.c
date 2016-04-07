@@ -11,6 +11,7 @@ double e;
 double F(double t)
 {
     double E = SolveKepler(t, e);
+    E = remainder(E, 2 *pi);
     return atan2(cos(E) - e, sqrt(1 - e * e) * sin(E));
 }
 
