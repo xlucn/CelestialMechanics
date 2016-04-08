@@ -10,7 +10,7 @@ double SolveKepler(double M, double e)
 	do {
 		E0 = E;
 		E = E0 - (E0 - e * sin(E0) - M) / (1 - e * cos(E0));
-	} while(fabs(E - E0) > 1e-14);
+	} while(fabs(E - E0) > 1e-12);
 
 	return E;
 }
