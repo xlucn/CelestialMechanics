@@ -1,7 +1,7 @@
 #! /usr/bin/python
 # -*- encoding=utf-8 -*-
 '''
-Plot the contour map of C_J circular restricted three-body problem
+Plot the contour map of C_J(Jacobi Integral) circular restricted three-body problem
 '''
 import numpy as np
 import matplotlib.pyplot as plt

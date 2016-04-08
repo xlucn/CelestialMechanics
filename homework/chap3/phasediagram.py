@@ -6,7 +6,7 @@ Plot the phase diagram of Sitnikov problems in circular and ellipse orbits
 import numpy as np
 import matplotlib.pyplot as plt
 
-datafile = ['SitnikovCircular.txt', 'SitnikovEllipse.txt']
+datafile = ['CircularSitnikov.txt', 'EllipticSitnikov.txt']
 
 
 for orbit in [0, 1]:
@@ -15,7 +15,7 @@ for orbit in [0, 1]:
     index = data[0]
     indexes = [np.where(index==i)[0] for i in range(int(index[-1])+1)]
 
-    z, vz = data[4], data[7]
+    z, vz = data[2], data[3]
 
     fig = plt.figure()
     for i in range(len(indexes)):
@@ -28,7 +28,7 @@ for orbit in [0, 1]:
     plt.title('phase diagram of Sitkinov problem')
     plt.xlabel('$z$',size=17)
     plt.ylabel('$dz/dt$',size=17)
-    plt.xlim(-5,5)
+    # plt.xlim(-5,5)
     if orbit == 0:
         plt.legend()
     plt.savefig(datafile[orbit][:-3]+'png')
