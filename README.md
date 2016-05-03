@@ -14,7 +14,7 @@ see https://github.com/OliverLew/MyRecipes.git
 
 Transformation between orbital elements and coordinate-velocity of a celestial body.
 
-**main file:**
+**related files:**
 
 [src/transform.c](https://github.com/OliverLew/CelestialMechanics/blob/master/src/transform.c)
 
@@ -25,7 +25,7 @@ Transformation between orbital elements and coordinate-velocity of a celestial b
 Use RKF7(8) method to integrate the two-body motion's differential equation for
 more than two periods. Check the conservation of energy.
 
-**main file:**
+**related files:**
 
 [src/evaluate.c](https://github.com/OliverLew/CelestialMechanics/blob/master/src/evaluate.c)
 
@@ -43,7 +43,7 @@ Plot the contour map of C_J in z=0 plane.
 
 Find at least three kinds of motions.
 
-**main file:**
+**related files:**
 
 [src/circularRTB.c](https://github.com/OliverLew/CelestialMechanics/blob/master/src/circularRTB.c)
 
