@@ -6,23 +6,33 @@ Plot the Poincare map(section) of a circular RTB(restricted three body problem)
 import numpy as np
 import matplotlib.pyplot as plt
 
-data = [l.split() for l in open('circularRTBtot.txt').readlines()]
-data = np.array(data).T.astype(float)
-y = data[2]
 
-sec = [[],[],[],[],[],[]]
-for i in range(len(y) - 1):
-	if y[i] < 0 and y[i + 1] > 0:
-		for j in range(6):
-			sec[j].append((y[i+1]*data[j+1][i]-y[i]*data[j+1][i+1])/(y[i + 1]-y[i]))
-sec1 = np.array(sec[0])
-sec2 = np.array(sec[3])
+def linearIpl(a1, a2):
+	k = (y0 - a2[2]) / (a1[2] - a2[2])
+	return k * a1 + (1 - k) * a2
 
+f = open('circularRTB.txt')
+newdata = np.array(f.readline().split()).astype(float)
+y0 = newdata[2]
+cj = newdata[-1]
+
+sec = []
+while True:
+	olddata = newdata
+	newdata = np.array(f.readline().split()).astype(float)
+	if len(newdata) == 0:
+		break
+	if olddata[2] < y0 and newdata[2] > y0:
+		sec.append(linearIpl(olddata, newdata))
+sec = np.array(sec).T
+sec1 = sec[1]
+sec2 = sec[4]
+f.close()
 
 fig = plt.figure()
 plt.plot(sec1, sec2, '.')
-plt.title('$Poincare\ Map\ at\ C_J=3.12,y=0,\dot{y}>0,\mu=0.001$')
-plt.xlim(0.1,0.9)
+plt.title('$Poincare\ Map\ at\ C_J=%f,y=%f,\dot{y}>0,\mu=0.001$' % (cj, y0))
+plt.xlim(-2, -0.75)
 plt.xlabel('$x$')
 plt.ylabel('$dx/dt$')
 plt.savefig('CRTBsection.png')

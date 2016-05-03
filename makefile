@@ -1,15 +1,19 @@
 # directories
 ## the directory of "MyRecipes" project
 NR_DIR=../MyRecipes
+
 ## the directory of include file NR.h
 NR_INC_DIR=$(NR_DIR)/include
+
 ## the directory of library file lNR.a
 NR_LIB_DIR=$(NR_DIR)/lib
+
 # flags
 CFLAGS=-Wall -g -std=c11
 LFLAGS=-lNR -L $(NR_LIB_DIR) -lm
 IFLAGS=-I ./include -I $(NR_INC_DIR)
 FLAGS=$(CFLAGS) $(IFLAGS) $(LFLAGS)
+
 # source files
 files=$(wildcard ./include/*) ./src/OrbitalEle_CoorVol_Trans.c
 files2=$(files) \
@@ -19,6 +23,7 @@ files3=$(files) \
 	./src/CircularRTB.c \
 	./src/CircularSitnikov.c \
 	./src/EllipticSitnikov.c
+
 # executable files
 bin21=./bin/evaluate
 bin22=./bin/transform
@@ -26,6 +31,7 @@ bin31=./bin/circularRTB
 bin32=./bin/CircularSitnikov
 bin33=./bin/EllipticSitnikov
 BIN=$(bin21) $(bin22) $(bin31) $(bin32) $(bin33)
+
 # text files
 txt21=./homework/chap2/evaluate.txt
 txt22=./homework/chap2/transform.txt

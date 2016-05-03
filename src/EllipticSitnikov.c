@@ -25,13 +25,13 @@ int main()
 {
 
 	double a = 0;
-	double b = 23 * pi;
+	double b = 50 * pi;
 	double h0 = pi / 100;
 	double hmax = pi / 10;
 	double hmin = pi / 1000;
 	double TOL = 1e-8;
 
-    e = 0.03;
+    e = 0.1;
     double (*f[])(double, double*) = {dz, dvz};
 
     double *t;
@@ -39,9 +39,9 @@ int main()
 
     int index;
     double z0;
-    for(z0 = 0.5, index = 0; z0 < 0.7; z0 += 0.5, index++)
+    for(z0 = 0.4, index = 0; z0 < 1.7; z0 += 0.4, index++)
     {
-        double y0[] = {0.5, 0};
+        double y0[] = {z0, 0};
         int steps = SODERKF(&t, &y, f, y0, a, b, 2, h0, TOL, hmax, hmin, 13);
 
         for(int i = 0; i < steps; i++)

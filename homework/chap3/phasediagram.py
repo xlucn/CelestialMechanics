@@ -24,12 +24,11 @@ for orbit in [0, 1]:
         if orbit == 0:
             plt.plot(z[lo:hi], vz[lo:hi],label='$C_J=%f$' % data[-1][lo])
         else:
-            plt.plot(z[lo:hi], vz[lo:hi])
+            plt.plot(z[lo:hi], vz[lo:hi],label='$z_0$=%f' % z[lo])
     plt.title('phase diagram of Sitkinov problem')
     plt.xlabel('$z$',size=17)
     plt.ylabel('$dz/dt$',size=17)
     # plt.xlim(-5,5)
-    if orbit == 0:
-        plt.legend()
+    plt.legend()
     plt.savefig(datafile[orbit][:-3]+'png')
     plt.close()

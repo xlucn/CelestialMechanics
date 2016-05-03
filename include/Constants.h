@@ -3,7 +3,8 @@
 
 #include "OrbitalEle_CoorVol_Trans.h"
 
-static const double pi = 3.14159265358979;
+static const double Pi = 3.14159265358979;
+static const double C = 299792458;
 static const double G = 6.673e-11;
 static const double MSun = 1.98893e30;
 static const double MEarth = 5.97371e24;

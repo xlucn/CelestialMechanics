@@ -24,5 +24,5 @@ cs = axs.contour(X, Y, zdata, levels=levels)
 plt.title('$C_J\ contour\ at\ \mu=0.1$')
 plt.colorbar(cs, ax=axs, format="%.2f")
 
-plt.savefig('contour.png')
+plt.savefig('contourCJ.png')
 plt.close()
