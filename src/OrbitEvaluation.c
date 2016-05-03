@@ -1,4 +1,7 @@
-//
+/**
+ * @file OrbitEvaluation.c
+ * @brief Solve a two body problem using RKF method
+ */
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -51,7 +54,7 @@ int main()
     double *Time = NULL;
     double **res = NULL;
 
-	// some constants used below can be found in "Constants.h"
+    // some constants used below can be found in "Constants.h"
     mu = G * (MSun + MEarth);
     OrbElem orb1 = orbEarth;
     CoorVol coor = OrbElem2CoorVol(orb1);
