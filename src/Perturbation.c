@@ -1,73 +1,51 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-#include "Constants.h"
 #include "NR.h"
 #include "OrbitalEle_CoorVol_Trans.h"
+#include "Constants.h"
 
-double mu;
+double *f(double t, double *orb)
+{
+    double c = 1;
+    double a = orb[0];
+    double e = orb[1];
+    double M = orb[5];
 
-static double cosffun(double *orb)
-{
-    double E = SolveKepler(orb[5], orb[1]);
-    return (cos(E) - orb[1]) / (1 - orb[1] * cos(E));
-}
+    double beta = sqrt(1 - e * e);
+    double E = SolveKepler(M, e);
+    double sinf = beta * sin(E) / (1 - e * cos(E));
+    double cosf = (cos(E) - e) / (1 - e * cos(E));
+    double gamma = 1 / (1 + e * cosf);
 
-static double sinffun(double *orb)
-{
-    double E = SolveKepler(orb[5], orb[1]);
-    return sqrt(1 - orb[1] * orb[1]) * sin(E) / (1 - orb[1] * cos(E));
-}
+    double r = a * (1 - e * e) * gamma;
+    double R = - 2 * c / (r * r * r);
+    double n = sqrt(mu / (a * a * a));
 
-static double Rfun(double *orb)
-{
-    double cosf = cosffun(orb);
-    double r = orb[0] * (1 - orb[1] * orb[1]) / (1 + orb[1] * cosf);
-    return 2 * c / (r * r * r);
-}
-
-double da(double *orb, double t)
-{
-    double R = Rfun(orb);
-    double n = sqrt(mu / (orb[0] * orb[0] * orb[0]));
-    return 2 * R * orb[1] * sinf / (n * sqrt(1 - orb[1] * orb[1]));
-}
-
-double de(double *orb, double t)
-{
-    double R = Rfun(orb);
-    double sinf = sinffun(orb);
-    double n = sqrt(mu / (orb[0] * orb[0] * orb[0]));
-    return sqrt(1 - orb[1] * orb[1]) * R * sinf / (n * orb[0]);
-}
-
-double di(double *orb, double t)
-{
-    return 0;
-}
-
-double dOmege(double *orb, double t)
-{
-    return 0;
-}
-
-double domega(double *orb, double t)
-{
-    double R = Rfun(orb);
-    double n = sqrt(mu / (orb[0] * orb[0] * orb[0]));
-    double cosf = cosffun(orb);
-    return -sqrt(1 - orb[1] * orb[1]) * R * cosf / (n * orb[0] * orb[1]);
-}
-double dM(double *orb, double t)
-{
-    double R = Rfun(orb);
-    double n = sqrt(mu / (orb[0] * orb[0] * orb[0]));
-    double cosf = cosffun(orb);
-    double gamma = 1 / (1 + orb[1] * cosf);
-    return n + (1 - orb[1] * orb[1]) * R * (cosf - 2 * gamma * orb[1]) / (n * orb[0] * orb[1]);
+    static double res[6];
+    res[0] = 2 * R * e * sinf / (n * beta);
+    res[1] = beta * R * sinf / (n * a);
+    res[2] = 0;
+    res[3] = 0;
+    res[4] = -beta * R * cosf / (n * a * e);
+    res[5] = n + (1 - e * e) * R * (cosf - 2 * e * gamma) / (n * a * e);
+    return res;
 }
 
 int main()
 {
+    OrbElem earth = orbEarth;
+    double y0[6] = {earth.a, earth.e, earth.i, earth.Omega, earth.omega, earth.M};
+    double a = 0;
+    double b = 1000;
+    int m = 6;
+    double h0 = 1;
+    double TOL = 1;
+    double hmax = 10;
+    double hmin = 0.1;
+    int n = 13;
+
+    SODEsol sol = SODERKF(f, y0, a, b, m, h0, TOL, hmax, hmin, n);
+
     return 0;
 }
