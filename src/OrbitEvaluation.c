@@ -16,29 +16,16 @@
  * @param y 6 components of coordinates and volocities(x,y,z,vx,vy,vz)
  * @return derivatives of x,y,z,vx,vy,vz with respect to time t
  */
-double dx(double t, double *y)
+double *f(double t, double *y)
 {
-    return y[3];
-}
-double dy(double t, double *y)
-{
-    return y[4];
-}
-double dz(double t, double *y)
-{
-    return y[5];
-}
-double dvx(double t, double *y)
-{
-    return - mu * y[0] / pow(y[0] * y[0] + y[1] * y[1] + y[2] * y[2], 1.5);
-}
-double dvy(double t, double *y)
-{
-    return - mu * y[1] / pow(y[0] * y[0] + y[1] * y[1] + y[2] * y[2], 1.5);
-}
-double dvz(double t, double *y)
-{
-    return - mu * y[2] / pow(y[0] * y[0] + y[1] * y[1] + y[2] * y[2], 1.5);
+    double *res = (double*)malloc(6 * sizeof(double));
+    res[0] = y[3];
+    res[1] = y[4];
+    res[2] = y[5];
+    res[3] = - mu * y[0] / pow(y[0] * y[0] + y[1] * y[1] + y[2] * y[2], 1.5);
+    res[4] = - mu * y[1] / pow(y[0] * y[0] + y[1] * y[1] + y[2] * y[2], 1.5);
+    res[5] = - mu * y[2] / pow(y[0] * y[0] + y[1] * y[1] + y[2] * y[2], 1.5);
+    return res;
 }
 
 int main()
@@ -51,8 +38,6 @@ int main()
     double TOL = 1e-5;
     double hmax = 864000;
     double hmin = 86.4;
-    double *Time = NULL;
-    double **res = NULL;
 
     // some constants used below can be found in "Constants.h"
     mu = G * (MSun + MEarth);
@@ -60,8 +45,10 @@ int main()
     CoorVol coor = OrbElem2CoorVol(orb1);
 
     double init[6] = {coor.x, coor.y, coor.z, coor.vx, coor.vy, coor.vz};
-    double (*f[6])(double, double*) = {dx, dy, dz, dvx, dvy, dvz};
-    int steps = SODERKF(&Time, &res, f, init, lo, hi, nfun, step, TOL, hmax, hmin, 13);
+    SODEsol sol = SODERKF(f, init, lo, hi, nfun, step, TOL, hmax, hmin, 13);
+    int steps = sol.step;
+    double *Time = sol.t;
+    double **res = sol.y;
 
     for(int i = 0; i < steps; i++)
     {
