@@ -6,14 +6,14 @@
  * Physical constants
  */
 #define Pi 3.14159265358979
-#define C 299792458
+#define C 299792458.0
 #define G 6.673e-11
 #define AU 1.49597870691e11
 
 /**
  * Time
  */
-#define secondsperyear 31556952
+#define secondsperyear 31556952.0
 
 
 /**
@@ -26,15 +26,15 @@
  * TorbPlanet: orbital period / year
  */
 
-#define RMercury 2440000
-#define RVenus 6051840
-#define REarth 6371010
-#define RMars 3389920
-#define RJupiter 69911000
-#define RSaturn 58232000
-#define RUranus 25362000
-#define RNeptune 24624000
-#define RPluto 1151000
+#define RMercury 2440000.0
+#define RVenus 6051840.0
+#define REarth 6371010.0
+#define RMars 3389920.0
+#define RJupiter 69911000.0
+#define RSaturn 58232000.0
+#define RUranus 25362000.0
+#define RNeptune 24624000.0
+#define RPluto 1151000.0
 #define MSun 1.98893e30
 #define MMercury 3.302e23
 #define MVenus 4.8658e24
