@@ -18,7 +18,7 @@
  */
 double *f(double t, double *y)
 {
-    double *res = (double*)malloc(6 * sizeof(double));
+    static double res[6];
     res[0] = y[3];
     res[1] = y[4];
     res[2] = y[5];

@@ -9,7 +9,7 @@ double e;
 
 double *f(double t, double *y)
 {
-    double *res = (double*)malloc_s(2 * sizeof(double));
+    static double res[2];
     double E = SolveKepler(t, e);
     double f = atan2(sqrt(1 - e * e) * sin(E), cos(E) - e);
     double r0 = (1 - e * e) / (1 + e * cos(f));

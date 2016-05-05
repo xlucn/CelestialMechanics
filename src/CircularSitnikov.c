@@ -6,7 +6,7 @@
 
 double *f(double t, double *y)
 {
-    double *res = (double*)malloc_s(2 * sizeof(double));
+    static double res[2];
     res[0] = y[1];
     res[1] = -y[0] / pow(0.25 + y[0] * y[0], 1.5);
     return res;

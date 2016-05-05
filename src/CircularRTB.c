@@ -20,7 +20,7 @@ double CJ(double *y)
 
 double *f(double t, double *y)
 {
-    double *res = (double*)malloc_s(6 * sizeof(double));
+    static double res[6];
     double r1 = sqrt((y[0] + mu)*(y[0] + mu) + y[1] * y[1] + y[2] * y[2]);
     double r2 = sqrt((y[0] + mu - 1)*(y[0] + mu - 1) + y[1] * y[1] + y[2] * y[2]);
     res[0] = y[3];
