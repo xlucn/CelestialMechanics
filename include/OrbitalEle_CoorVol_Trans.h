@@ -7,15 +7,15 @@
 /**
  * @brief the orbital elements of a object
  *
- *
+ * @note all the parameters are in SI unit
  */
 typedef struct OrbitalElements{
-    double a;       /**< semimajor axis. unit:AU */
+    double a;       /**< semimajor axis. */
     double e;       /**< eccentricity */
-    double i;       /**< inclination. unit:degree */
-    double Omega;   /**< longitude of the accending node. unit:degree */
-    double omega;   /**< argument of periapsis. unit:degree */
-    double M;       /**< mean anomaly. unit:degree */
+    double i;       /**< inclination. */
+    double Omega;   /**< longitude of the accending node.  */
+    double omega;   /**< argument of periapsis. */
+    double M;       /**< mean anomaly. */
 } OrbElem;
 
 // define the coordinate and velocity in Cartesian coordinate system

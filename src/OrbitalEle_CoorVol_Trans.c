@@ -25,37 +25,37 @@ OrbElem CoorVol2OrbElem(CoorVol coor)
     double vy = coor.vy;
     double vz = coor.vz;
 
-    double r = sqrt(x * x + y * y + z * z); // radius
-    double v = sqrt(vx * vx + vy * vy + vz * vz); // speed
-    double a = 1 / (2 / r - v * v / mu); // semimajor axis
-    double n = sqrt(mu / (a * a * a)); // mean motion
-    double Hx = y * vz - z * vy; // angular momentum x component
-    double Hy = z * vx - x * vz; // y component
-    double Hz = x * vy - y * vx; // z component
-    double h = sqrt(Hx * Hx + Hy * Hy + Hz * Hz); //
-    double e = sqrt(1 - h * h / mu / a); // eccentricity
-    double cosE = (1 - r / a) / e; // eccentric anomaly sin and cos
+    double r = sqrt(x * x + y * y + z * z);         // radius
+    double v = sqrt(vx * vx + vy * vy + vz * vz);   // speed
+    double a = 1 / (2 / r - v * v / mu);            // semimajor axis
+    double n = sqrt(mu / (a * a * a));              // mean motion
+    double Hx = y * vz - z * vy;                    // angular momentum x component
+    double Hy = z * vx - x * vz;                    // y component
+    double Hz = x * vy - y * vx;                    // z component
+    double h = sqrt(Hx * Hx + Hy * Hy + Hz * Hz);   //
+    double e = sqrt(1 - h * h / mu / a);            // eccentricity
+    double cosE = (1 - r / a) / e;                  // eccentric anomaly sin and cos
     double sinE = (x * vx + y * vy + z * vz) / (a * a * n * e);
-    double E = atan2(sinE, cosE); // eccentric anomaly
-    double M = E - e * sin(E); // mean anomaly
-    double i = acos(Hz / h); // inclination
-    double Omega = atan2(Hx, -Hy); // longitude of the accending node (2.122)
+    double E = atan2(sinE, cosE);                   // eccentric anomaly
+    double M = E - e * sin(E);                      // mean anomaly
+    double i = acos(Hz / h);                        // inclination
+    double Omega = atan2(Hx, -Hy);                  // longitude of the accending node (2.122)
     double Pz = cos(E) * z / r - sin(E) * vz / n / a;
     double Qz = (sin(E) * z / r + (cos(E) - e) * vz / (n * a)) / sqrt(1 - e * e);
-    double omega = atan2(Pz, Qz); // argument of periapsis
+    double omega = atan2(Pz, Qz);                   // argument of periapsis
 
-    OrbElem orb = {a / AU, e, i * 180 / Pi, Omega * 180 / Pi, omega * 180 / Pi, M * 180 / Pi};
+    OrbElem orb = {a, e, i, Omega, omega, M};
     return orb;
 }
 
 CoorVol OrbElem2CoorVol(OrbElem orb)
 {
-    double a = orb.a * AU;
+    double a = orb.a;
     double e = orb.e;
-    double i = orb.i / 180 * Pi;
-    double Omega = orb.Omega / 180 * Pi;
-    double omega = orb.omega / 180 * Pi;
-    double M = orb.M / 180 * Pi;
+    double i = orb.i;
+    double Omega = orb.Omega;
+    double omega = orb.omega;
+    double M = orb.M;
 
     double E = SolveKepler(M, e);
     double r = a * (1 - e * cos(E));
