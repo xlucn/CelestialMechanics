@@ -6,10 +6,19 @@ codes and some pictures I wrote to solve the problems in the textbook.
 The textbook is written by Jilin Zhou @ NJU.
 
 ## Requirement
+
 In case someone wants to use my code:
 
 **This project need the static library of another project of mine :
 [MyRecipes](https://github.com/OliverLew/MyRecipes.git)**
+
+Besides of this, you need those programs/modules installed in your computer:
+
+- gcc
+- make
+- python
+    - numpy
+    - matplotlib
 
 ## Chapter 2
 
