@@ -2,4 +2,7 @@ bin/
 otherscode/
 *.txt
 *.tar.gz
+*.zip
+*.tar
+*.gz
 *.png
