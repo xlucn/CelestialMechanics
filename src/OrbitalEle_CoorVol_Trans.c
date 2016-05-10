@@ -1,7 +1,18 @@
+/**
+ * @file OrbitalEle_CoorVol_Trans.c
+ * @brief Transformation between orbital elements and coordinates
+ *
+ * Here two struct type is defined for orbital elements and coordinates.
+ */
 #include "OrbitalEle_CoorVol_Trans.h"
 #include "Constants.h"
 
-// Newton method to solve the Kepler equation
+/**
+ * @brief Newton method to solve the Kepler equation
+ * @param M mean anomaly
+ * @param e eccentricity
+ * @returns eccentric anomaly
+ */
 double SolveKepler(double M, double e)
 {
     double E = 0;
@@ -15,7 +26,13 @@ double SolveKepler(double M, double e)
     return E;
 }
 
-// transform from coordinates and velocity to orbital elements
+/**
+ * @brief transform from coordinates and velocity to orbital elements
+ * @param coor struct type CoorVol variable
+ * @returns corresponding Orbital element
+ *
+ *
+ */
 OrbElem CoorVol2OrbElem(CoorVol coor)
 {
     double x = coor.x;
@@ -48,6 +65,13 @@ OrbElem CoorVol2OrbElem(CoorVol coor)
     return orb;
 }
 
+/**
+ * @brief transform from orbital elements to coordinates and velocity
+ * @param coor struct type OrbElem variable
+ * @returns corresponding struct type CoorVol variable
+ *
+ *
+ */
 CoorVol OrbElem2CoorVol(OrbElem orb)
 {
     double a = orb.a;

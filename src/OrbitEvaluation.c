@@ -14,7 +14,7 @@
  * Derivatives of x,y,z,vx,vy,vz with respect to time t
  * @param t time
  * @param y 6 components of coordinates and volocities(x,y,z,vx,vy,vz)
- * @return derivatives of x,y,z,vx,vy,vz with respect to time t
+ * @returns derivatives of x,y,z,vx,vy,vz with respect to time t
  */
 double *f(double t, double *y)
 {

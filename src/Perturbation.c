@@ -1,3 +1,7 @@
+/**
+ * @file Perturbation.c
+ *
+ */
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
@@ -6,6 +10,14 @@
 #include "Constants.h"
 double  mu = G * (MEarth + MSun);
 
+/**
+ * @brief right function of perturbation equation
+ * @param t time
+ * @param orb array of orbital elements
+ * @returns derivative of orbital elements of time
+ *
+ *
+ */
 double *f(double t, double *orb)
 {
     double c = 1e-3 * G * MSun * orbEarth.a;

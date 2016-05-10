@@ -1,9 +1,22 @@
+/**
+ * @file CircularSitnikov.c
+ * @brief Solve the circular Sitnikov Problem
+ */
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
 #include "NR.h"
 #include "Constants.h"
 
+/**
+ * @brief the right function of Circular Sitnikov Problem
+ * @param t time
+ * @param y coordinate z and vz
+ * @returns derivative of coordinates of time
+ *
+ * The third object in Sitkoniv Problem is limited in the line vertical to the
+ * main plane of the two main bodies, so there is only z and vz in this equation.
+ */
 double *f(double t, double *y)
 {
     static double res[2];

@@ -1,3 +1,7 @@
+/**
+ * @file EllipticSitnikov.c
+ * @brief Solve the circular Sitnikov Problem
+ */
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
@@ -7,13 +11,23 @@
 
 double e;
 
+/**
+ * @brief the right function of elliptic Sitnikov Problem
+ * @param t time
+ * @param y coordinate z and vz
+ * @returns derivative of coordinates of time
+ *
+ * The third object in Sitkoniv Problem is limited in the line vertical to the
+ * main plane of the two main bodies, so there is only z and vz in this equation.
+ */
 double *f(double t, double *y)
 {
-    static double res[2];
     double E = SolveKepler(t, e);
-    double f = atan2(sqrt(1 - e * e) * sin(E), cos(E) - e);
-    double r0 = (1 - e * e) / (1 + e * cos(f));
+    double cosf = (cos(E) - e) / (1 - e * cos(E));
+    double r0 = (1 - e * e) / (1 + e * cosf);
     double r = sqrt(pow(r0 / 2, 2) + y[0] * y[0]);
+
+    static double res[2];
     res[0] = y[1];
     res[1] = - y[0] / pow(r, 3);
     return res;
