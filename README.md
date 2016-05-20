@@ -38,7 +38,7 @@ more than two periods. Check the conservation of energy.
 
 **related files:**
 
-[evaluate.c](https://github.com/OliverLew/CelestialMechanics/blob/master/chap2/evaluate.c)
+[OrbitEvaluation.c](https://github.com/OliverLew/CelestialMechanics/blob/master/chap2/OrbitEvaluation.c)
 
 [plotorbit.py](https://github.com/OliverLew/CelestialMechanics/blob/master/chap2/plotorbit.py)
 
@@ -56,7 +56,7 @@ Find at least three kinds of motions.
 
 **related files:**
 
-[circularRTB.c](https://github.com/OliverLew/CelestialMechanics/blob/master/chap3/circularRTB.c)
+[CircularRTB.c](https://github.com/OliverLew/CelestialMechanics/blob/master/chap3/CircularRTB.c)
 
 [orbitplot.py](https://github.com/OliverLew/CelestialMechanics/blob/master/chap3/orbitplot.py)
 
@@ -69,7 +69,7 @@ points in circular restricted 3-body problem.
 
 **related files**
 
-[circularRTB.c](https://github.com/OliverLew/CelestialMechanics/blob/master/chap3/circularRTB.c)
+[CircularRTB.c](https://github.com/OliverLew/CelestialMechanics/blob/master/chap3/CircularRTB.c)
 
 [PoincareMapRTB.py](https://github.com/OliverLew/CelestialMechanics/blob/master/chap3/PoincareMapRTB.py)
 

@@ -1,8 +1,7 @@
-bin/
-otherscode/
-*.txt
-*.tar.gz
-*.zip
-*.tar
-*.gz
-*.png
+*
+!*.c
+!*.py
+!README.md
+!.gitignore
+!makefile
+!sub.mk
