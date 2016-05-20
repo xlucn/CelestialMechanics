@@ -8,9 +8,9 @@
 #include "NR.h"
 #include "Constants.h"
 
-int j; /**< the dummy index */
-double k; /**< the index in series expansion */
-double alpha; /**< the ratio of two semimajor axis */
+static int j; /**< the dummy index */
+static double k; /**< the index in series expansion */
+static double alpha; /**< the ratio of two semimajor axis */
 
 /**
  * @brief The integrand of the integral in Laplace coefficient
