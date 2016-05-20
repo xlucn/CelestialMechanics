@@ -29,9 +29,7 @@ body.
 
 **related files:**
 
-[src/transform.c](https://github.com/OliverLew/CelestialMechanics/blob/master/src/transform.c)
-
-[src/OrbitalEle_CoorVol_Trans.c](https://github.com/OliverLew/CelestialMechanics/blob/master/src/OrbitalEle_CoorVol_Trans.c)
+[transform.c](https://github.com/OliverLew/CelestialMechanics/blob/master/chap2/transform.c)
 
 ### Problem 2.7
 
@@ -40,9 +38,9 @@ more than two periods. Check the conservation of energy.
 
 **related files:**
 
-[src/evaluate.c](https://github.com/OliverLew/CelestialMechanics/blob/master/src/evaluate.c)
+[evaluate.c](https://github.com/OliverLew/CelestialMechanics/blob/master/chap2/evaluate.c)
 
-[homework/chap2/plotorbit.py](https://github.com/OliverLew/CelestialMechanics/blob/master/homework/chap2/plotorbit.py)
+[plotorbit.py](https://github.com/OliverLew/CelestialMechanics/blob/master/chap2/plotorbit.py)
 
 
 ## Chapter 3
@@ -58,11 +56,11 @@ Find at least three kinds of motions.
 
 **related files:**
 
-[src/circularRTB.c](https://github.com/OliverLew/CelestialMechanics/blob/master/src/circularRTB.c)
+[circularRTB.c](https://github.com/OliverLew/CelestialMechanics/blob/master/chap3/circularRTB.c)
 
-[homework/chap2/orbitplot.py](https://github.com/OliverLew/CelestialMechanics/blob/master/homework/chap2/orbitplot.py)
+[orbitplot.py](https://github.com/OliverLew/CelestialMechanics/blob/master/chap3/orbitplot.py)
 
-[homework/chap2/plotcontour.py](https://github.com/OliverLew/CelestialMechanics/blob/master/homework/chap2/plotcontour.py)
+[plotcontour.py](https://github.com/OliverLew/CelestialMechanics/blob/master/chap3/plotcontour.py)
 
 ### Problem 3.4
 
@@ -71,9 +69,9 @@ points in circular restricted 3-body problem.
 
 **related files**
 
-[src/circularRTB.c](https://github.com/OliverLew/CelestialMechanics/blob/master/src/circularRTB.c)
+[circularRTB.c](https://github.com/OliverLew/CelestialMechanics/blob/master/chap3/circularRTB.c)
 
-[homework/chap3/PoincareMapRTB.py](https://github.com/OliverLew/CelestialMechanics/blob/master/homework/chap3/PoincareMapRTB.py)
+[PoincareMapRTB.py](https://github.com/OliverLew/CelestialMechanics/blob/master/chap3/PoincareMapRTB.py)
 
 ### Problem 3.6
 
@@ -81,11 +79,11 @@ Plot the phase diagram of circular and elliptic [Sitnikov problem](https://en.wi
 
 **related files**
 
-[src/CircularSitnikov.c](https://github.com/OliverLew/CelestialMechanics/blob/master/src/CircularSitnikov.c)
+[CircularSitnikov.c](https://github.com/OliverLew/CelestialMechanics/blob/master/chap3/CircularSitnikov.c)
 
-[src/EllipticSitnikov.c](https://github.com/OliverLew/CelestialMechanics/blob/master/src/EllipticSitnikov.c)
+[EllipticSitnikov.c](https://github.com/OliverLew/CelestialMechanics/blob/master/chap3/EllipticSitnikov.c)
 
-[homework/chap3/plotcontour.py](https://github.com/OliverLew/CelestialMechanics/blob/master/homework/chap3/plotcontour.py)
+[plotcontour.py](https://github.com/OliverLew/CelestialMechanics/blob/master/chap3/plotcontour.py)
 
 ## Chapter 4
 
@@ -96,9 +94,9 @@ perturbation equations using numerical method.
 
 **related files**
 
-[src/Perturbation.c](https://github.com/OliverLew/CelestialMechanics/blob/master/src/Perturbation.c)
+[Perturbation.c](https://github.com/OliverLew/CelestialMechanics/blob/master/chap4/Perturbation.c)
 
-[homework/chap4/plotperturbation.py](https://github.com/OliverLew/CelestialMechanics/blob/master/homework/chap4/plotperturbation.py)
+[plotperturbation.py](https://github.com/OliverLew/CelestialMechanics/blob/master/chap4/plotperturbation.py)
 
 ### Problem 4.3
 
@@ -107,4 +105,4 @@ the textbook.
 
 **related files**
 
-[src/LaplaceCoefficient.c](https://github.com/OliverLew/CelestialMechanics/blob/master/src/LaplaceCoefficient.c)
+[LaplaceCoefficient.c](https://github.com/OliverLew/CelestialMechanics/blob/master/chap4/LaplaceCoefficient.c)
