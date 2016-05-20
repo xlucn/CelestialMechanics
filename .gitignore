@@ -1,7 +1,7 @@
-*
 !*.c
 !*.py
 !README.md
 !.gitignore
 !makefile
 !sub.mk
+!*.png
