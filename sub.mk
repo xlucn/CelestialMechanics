@@ -40,7 +40,7 @@ all:$(BIN)
 run:$(TXT)
 
 $(TXT):%.txt:%
-	$< > $@
+	./$< > $@
 
 py:%.py
 	$(PYTHON) $<
