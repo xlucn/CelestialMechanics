@@ -1,5 +1,3 @@
-*
-!README.md
-!.gitignore
-!makefile
-!sub.mk
+*.txt
+*.tar.gz
+*.zip
