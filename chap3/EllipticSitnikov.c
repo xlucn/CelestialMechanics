@@ -51,23 +51,17 @@ int main()
 
     int index;
     double z0;
+    SODEsol sol;
     for(z0 = 0.4, index = 0; z0 < 1.7; z0 += 0.4, index++)
     {
         double y0[] = {z0, 0};
-
-        SODEsol sol = SODERKF(f, y0, a, b, 2, h0, TOL, hmax, hmin, 13);
-        steps = sol.step;
-        t = sol.t;
-        y = sol.y;
-
-        for(int i = 0; i < steps; i++)
+        sol = SODERKF(f, y0, a, b, 2, h0, TOL, hmax, hmin, 13);
+        for(int i = 0; i < sol.step; i++)
         {
-            printf("%d %f %f %f\n",index, t[i], y[i][0], y[i][1]);
+            printf("%d %f %f %f\n", index, sol.t[i], sol.y[i][0], sol.y[i][1]);
         }
     }
-
-    free(t);
-    free(y);
+    DisposeSODEsol(sol);
 
     return 0;
 }

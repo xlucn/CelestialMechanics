@@ -133,7 +133,6 @@ int main(int argc, char* argv[])
             b = atof(argv[4]) * Pi;
         }
     }
-
 // for(; x0 > -2; x0 -= 0.1)
 // {
 //  fprintf(stderr, "x0: %f\n", x0);
@@ -149,6 +148,7 @@ int main(int argc, char* argv[])
         printf("%f %f %f %f %f %f %.10f\n",
             y[i][0], y[i][1], y[i][2], y[i][3], y[i][4], y[i][5], CJ(y[i]));
     }
+    DisposeSODEsol(sol);
 // }
     FILE *para;
     // currently this will work when rum make command in the project root path
@@ -159,8 +159,6 @@ int main(int argc, char* argv[])
     fprintf(para, "mu %f\n", mu);
     fclose(para);
 
-    free(t);
-    free(y);
 
     return 0;
 }

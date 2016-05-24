@@ -1,7 +1,8 @@
 /**
  * @file Constants.h
  * @brief This file contains some of the constants frequently used in celestial machanics
- * @note All the quantities in this file are in SI unit
+ *
+ * @note ALL THE QUANTITIES IN THIS FILE ARE IN **SI** UNIT!!!
  */
 #ifndef _Const_H_
 #define _Const_H_
@@ -11,7 +12,7 @@
 /**
  * Physical constants
  */
-#define Pi 3.14159265358979
+#define Pi 3.14159265358979323846
 #define C 299792458.0
 #define G 6.673e-11
 #define AU 1.49597870691e11
