@@ -91,13 +91,14 @@ double initvy(double CJ0, double x0, double y0)
  * @param argv You can set the initial values of C_J, x, y respectively(optional)
  * @returns
  *
- *    here are some examples of initial values, change x0 and Cj down there to
- *    use it.
- *
- *    x = 0.26,    vy = 2.1460379245807788,    C_J = 3.12 :    Quasi-periodic-3-islands
- *    x = 0.29,    vy = 1.9577794196268348,    C_J = 3.12 :    Quasi-periodic
- *    x = 0.2693,  vy = 2.0849580921077813,    C_J = 3.12 :    Periodic
- *    x = 0.29,    vy = 1.9730433993996144,    C_J = 3.06 :    Chaotic
+ * here are some examples of initial values, change x0 and Cj down there to
+ * use it.
+ * C_J = 3.06 :
+ *    x = 0.29,    Chaotic
+ * C_J = 3.12 :
+ *    x = 0.26,    Quasi-periodic-3-islands
+ *    x = 0.29,    Quasi-periodic
+ *    x = 0.2693,  Periodic
  *    x = 0.225    Periodic-5
  *    x = 0.23     Quasi-periodic-5
  *    x = 0.22     Quasi-periodic-5
