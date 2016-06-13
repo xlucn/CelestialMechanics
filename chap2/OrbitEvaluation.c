@@ -56,7 +56,6 @@ int main()
         printf("%f %f %f %f %f %f\n",
             res[i][0], res[i][1], res[i][2], res[i][3], res[i][4], res[i][5]);
     }
-    free(Time);
-    free(res);
+    DisposeSODEsol(sol);
     return 0;
 }
