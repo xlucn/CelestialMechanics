@@ -5,8 +5,7 @@ Plot the contour map of C_J(Jacobi Integral) circular restricted three-body prob
 '''
 import numpy as np
 import matplotlib.pyplot as plt
-
-axs = plt.subplot()
+plt.figure()
 
 mu = 0.1
 xs = np.linspace(-2,2,400)
@@ -19,10 +18,10 @@ def Cj(x, y):
     return 2 * omega
 
 zdata = Cj(X, Y)
-levels = np.linspace(2.8, 3.7, 400)
-cs = axs.contour(X, Y, zdata, levels=levels)
+levels = np.linspace(2.8, 3.7, 40)
+plt.contourf(X, Y, zdata, levels)
 plt.title('$C_J\ contour\ at\ \mu=0.1$')
-plt.colorbar(cs, ax=axs, format="%.2f")
+plt.colorbar(ticks=np.linspace(2.8, 3.7, 11))
 
 plt.savefig('contourCJ.png')
 plt.close()
