@@ -10,7 +10,7 @@ from mpl_toolkits.mplot3d import Axes3D
 '''
 Read the data file
 '''
-datafile = 'circularRTB.txt'
+datafile = 'CircularRTB.txt'
 data = [[float(i) for i in l.split()] for l in open(datafile).readlines()]
 data = np.array(data).T
 t, x, y, z=data[0], data[1], data[2], data[3]
@@ -73,7 +73,7 @@ def plot3d():
     ax.set_title('3D plot of circular restricted three-body problem')
     ax.plot(x, y, z)
     # plt.show()
-    plt.savefig('orbitCRTB3d.png')
+    plt.savefig('CRTBorbit3d.png')
     plt.close()
 
 def main():
