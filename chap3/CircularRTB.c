@@ -112,16 +112,16 @@ int main(int argc, char* argv[])
     mu = 0.001;
 
     double a = 0;
-    double b = 1000 * Pi;
+    double b = 10000 * Pi;
     double h0 = Pi / 100;
-    double hmax = Pi / 10;
-    double hmin = Pi / 1000000;
-    double TOL = 1e-6;
+    double hmax = Pi / 20;
+    double hmin = Pi / 1000;
+    double TOL = 1e-10;
 
 
     // change the parameters here or enter them in terminal parameter
-    double Cj = 3.001;
-    double x0 = -1.9;
+    double Cj = 3.039;
+    double x0 = 0.93;
     double y0 = 0;
 
     if(argc >= 4)
@@ -134,26 +134,25 @@ int main(int argc, char* argv[])
             b = atof(argv[4]) * Pi;
         }
     }
-// for(; x0 > -2; x0 -= 0.1)
-// {
-//  fprintf(stderr, "x0: %f\n", x0);
-    double r0[] = {x0, y0, 0, 0, initvy(Cj, x0, y0), 0};
-    SODEsol sol = SODERKF(f, r0, a, b, 6, h0, TOL, hmax, hmin, 13);
-    int steps = sol.step;
-    double *t = sol.t;
-    double **y = sol.y;
-
-    for(int i = 0; i < steps; i+=10)
+    //for(; x0 >= 1.0; x0 -= 0.1)
     {
-        printf("%f ", t[i]);
-        printf("%f %f %f %f %f %f %.10f\n",
-            y[i][0], y[i][1], y[i][2], y[i][3], y[i][4], y[i][5], CJ(y[i]));
+        double r0[] = {x0, y0, 0, 0, initvy(Cj, x0, y0), 0};
+        SODEsol sol = SODERKF78(f, r0, a, b, 6, h0, TOL, hmax, hmin);
+        int steps = SODEsolGetStep(sol);
+        double *t = SODEsolGetT(sol);
+        double **y = SODEsolGetY(sol);
+
+        for(int i = 0; i < steps; i+=10)
+        {
+            printf("%f ", t[i]);
+            printf("%f %f %f %f %f %f %.10f\n",
+                y[i][0], y[i][1], y[i][2], y[i][3], y[i][4], y[i][5], CJ(y[i]));
+        }
+        delSODEsol(sol);
     }
-    DisposeSODEsol(sol);
-// }
     FILE *para;
     // currently this will work when rum make command in the project root path
-    para = fopen("homework/chap3/circularRTBpara.txt", "w");
+    para = fopen("circularRTBpara.txt", "w");
     fprintf(para, "a %f\n", a);
     fprintf(para, "b %f\n", b);
     fprintf(para, "TOL %e\n", TOL);
