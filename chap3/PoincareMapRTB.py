@@ -25,6 +25,9 @@ while True:
 	if olddata[2] < y0 and newdata[2] > y0:
 		sec.append(linearIpl(olddata, newdata))
 sec = np.array(sec).T
+if len(sec) == 0:
+    print 'PoincareMapRTB.py: no sections, exiting'
+    exit()
 sec1 = sec[1]
 sec2 = sec[4]
 f.close()
