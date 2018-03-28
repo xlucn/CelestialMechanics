@@ -11,7 +11,7 @@ def linearIpl(a1, a2):
 	k = (y0 - a2[2]) / (a1[2] - a2[2])
 	return k * a1 + (1 - k) * a2
 
-f = open('circularRTB.txt')
+f = open('CircularRTB.txt')
 newdata = np.array(f.readline().split()).astype(float)
 y0 = newdata[2]
 cj = newdata[-1]
