@@ -42,8 +42,8 @@ run:$(TXT)
 $(TXT):%.txt:%
 	./$< > $@
 
-py:%.py
-	$(PYTHON) $<
+py:
+	for pyfile in $(PYFILES); do $(PYTHON) $$pyfile; done
 
 test:
 	@echo $(CC) -o $(BIN) $(SRC) $(ALLFLAGS)
