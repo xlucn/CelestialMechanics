@@ -142,14 +142,16 @@ int main(int argc, char* argv[])
         double *t = SODEsolGetT(sol);
         double **y = SODEsolGetY(sol);
 
+        FILE *fp = fopen("CircularRTB.txt", "w");
         for(int i = 0; i < steps; i+=10)
         {
-            printf("%f ", t[i]);
-            printf("%f %f %f %f %f %f %.10f\n",
+            fprintf(fp, "%f ", t[i]);
+            fprintf(fp, "%f %f %f %f %f %f %.10f\n",
                 y[i][0], y[i][1], y[i][2], y[i][3], y[i][4], y[i][5], CJ(y[i]));
         }
         delSODEsol(sol);
     }
+    
     FILE *para;
     // currently this will work when rum make command in the project root path
     para = fopen("circularRTBpara.txt", "w");
